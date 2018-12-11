@@ -1,0 +1,25 @@
+@mixin imgBg($name, $w, $h) {
+    $imgurl: '~@/assets/images';
+    background-image: url(#{$imgurl}/#{$name});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $w $h;
+}
+
+@mixin textOver($num) {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+}
+
+@mixin coverBg {
+    width: 100%;
+    overflow:hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}

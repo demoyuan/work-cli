@@ -1,0 +1,50 @@
+{
+  "name": "work-cli",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve-dev": "vue-cli-service serve",
+    "build-dev": "vue-cli-service build",
+    "build-qc": "vue-cli-service build --mode qc",
+    "release": "vue-cli-service build --mode release",
+    "upload-dev": "gulp deploy --mode dev",
+    "upload-qc": "gulp deploy --mode qc",
+    "upload-release": "gulp deploy --mode release",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "register-service-worker": "^1.5.2",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.0",
+    "@vue/cli-plugin-pwa": "^3.2.0",
+    "@vue/cli-plugin-unit-jest": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "axios": "^0.18.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "gulp": "^4.0.0",
+    "gulp-sftp": "^0.1.5",
+    "gulp-util": "^3.0.8",
+    "lib-flexible": "^0.3.2",
+    "node-sass": "^4.9.0",
+    "postcss-pxtorem": "^4.0.1",
+    "qs": "^6.6.0",
+    "sass-loader": "^7.0.1",
+    "vinyl-ftp": "^0.6.1",
+    "vue-i18n": "^8.4.0",
+    "vue-template-compiler": "^2.5.17"
+  }
+}
