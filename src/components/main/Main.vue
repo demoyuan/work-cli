@@ -8,7 +8,7 @@
             >
                 <router-view
                     v-if="$route.meta.keepAlive"
-                    class="min-height"
+                    class="app-height"
                 />
             </transition>
         </keep-alive>
@@ -19,7 +19,7 @@
         >
             <router-view
                 v-if="!$route.meta.keepAlive"
-                class="min-height"
+                class="app-height"
             />
         </transition>
     </div>
@@ -58,7 +58,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.min-height {
+.app-height {
+    /* 适配刘海屏 env() 跟 constant() 需要同时存在，而且顺序不能换 */
+    padding-top: constant(safe-area-inset-top); /* 兼容 iOS < 11.2 */
+    padding-top: env(safe-area-inset-top); /* 兼容 iOS >= 11.2 */
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
     min-height: 100vh;
     overflow: hidden;
 }
