@@ -18,8 +18,38 @@
 
 @mixin coverBg {
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
+}
+
+/* width size */
+$width-m: 768px;
+$width-l: 1024px;
+
+/* media */
+@mixin desktop {
+    @media (min-width: $width-l) {
+        @content;
+    }
+}
+
+@mixin tablets {
+    @media (min-width: $width-m) and (max-width: $width-l) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $width-m) {
+        @content;
+    }
+}
+
+@mixin iphonex {
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+        @content;
+        // padding-bottom: rem(34px);
+    }
 }
