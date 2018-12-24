@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { router } from '@/mixins/public'
+import { router } from '@/mixins'
 
 export default {
     name: 'HeaderNav',
