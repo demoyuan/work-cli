@@ -16,6 +16,15 @@ export default [
         component: Main,
         children: [
             {
+                path: '/login',
+                name: 'login',
+                meta: {
+                    index: 1,
+                    keepAlive: false
+                },
+                component: () => import('@/views/index/pages/Login.vue')
+            },
+            {
                 path: '/home',
                 name: 'home',
                 meta: {
