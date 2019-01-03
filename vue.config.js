@@ -16,11 +16,21 @@ module.exports = {
     outputDir: `dist/${process.env.VUE_APP_DIST}`,
     assetsDir: 'static',
     productionSourceMap: !init.getEnv(),
-    pages: {
-        index: {
-            entry: 'src/views/index/main.js',
-            template: 'public/index.html',
-            filename: 'index.html'
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@c': '@/components',
+                '@u': '@/utils',
+                '@m': '@/mixins',
+                '@vIndexPage': '@/views/index/pages'
+            }
+        }
+    },
+    css: {
+        loaderOptions: {
+            sass: {
+                data: `@import '@/assets/css/mixin.scss';`
+            }
         }
     },
     devServer: {
@@ -34,11 +44,11 @@ module.exports = {
             }
         }
     },
-    css: {
-        loaderOptions: {
-            sass: {
-                data: `@import '@/assets/css/mixin.scss';`
-            }
+    pages: {
+        index: {
+            entry: 'src/views/index/main.js',
+            template: 'public/index.html',
+            filename: 'index.html'
         }
     }
 }
