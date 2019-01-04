@@ -1,4 +1,4 @@
-import { Main } from '@/components/main'
+import { Main } from '@c/main'
 
 /**
  * meta: {
@@ -22,7 +22,7 @@ export default [
                     index: 1,
                     keepAlive: false
                 },
-                component: () => import('@/views/index/pages/Login.vue')
+                component: () => import('@vIndexPage/Login.vue')
             },
             {
                 path: '/home',
@@ -32,7 +32,7 @@ export default [
                     keepAlive: false,
                     role: ['auth']
                 },
-                component: () => import('@/views/index/pages/Home.vue')
+                component: () => import('@vIndexPage/Home.vue')
             },
             {
                 path: '/about',
@@ -42,7 +42,7 @@ export default [
                     keepAlive: false,
                     role: ['auth']
                 },
-                component: () => import('@/views/index/pages/About.vue')
+                component: () => import('@vIndexPage/About.vue')
             }
         ]
     }

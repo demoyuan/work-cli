@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import enLocale from './lang/en-US'
 import hkLocale from './lang/zh-HK'
-import store from '@/utils/localCache'
+import store from '@u/localCache'
 
 Vue.use(VueI18n)
 

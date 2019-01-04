@@ -13,12 +13,12 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@c/HelloWorld.vue'
 
 export default {
     name: 'home',
     components: {
-        HeaderNav: () => import('@/components/header'),
+        HeaderNav: () => import('@c/header'),
         HelloWorld
     },
     data() {

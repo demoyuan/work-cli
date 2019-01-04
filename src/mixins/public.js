@@ -1,4 +1,4 @@
-import { urlEncode } from '@/utils/tools'
+import { urlEncode } from '@u/tools'
 
 /* router link */
 export const router = {
