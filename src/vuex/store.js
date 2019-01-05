@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-/* modules */
-import { user } from './modules'
+import * as mod from './modules'
 
 Vue.use(Vuex)
 
@@ -20,6 +18,6 @@ export default new Vuex.Store({
         }
     },
     modules: {
-        user
+        user: mod.user,
     }
 })
