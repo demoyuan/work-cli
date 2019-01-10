@@ -69,8 +69,10 @@ export const timeNumberArr = arr => {
  * @returns 返回移除元素后的数组
  */
 export const removeArrItem = (arr, index) => {
-    delete arr[index]
-    let newArr = arr.filter(() => true)
+    // 数组深拷贝，防止修改原数组，会忽略掉值为undefined以及函数表达式
+    let [...copyArr] = JSON.parse(JSON.stringify(arr))
+    delete copyArr[index]
+    let newArr = copyArr.filter(() => true)
     return [...newArr]
 }
 
