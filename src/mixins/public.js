@@ -8,7 +8,7 @@ export const router = {
          * @param {Object} params 参数
          * @param {Object} query 查询参数
          */
-        linkTo(name, params, query) {
+        linkTo({name, params, query}) {
             this.$router.push({
                 name,
                 params,
@@ -31,7 +31,7 @@ export const router = {
             if (path) {
                 this.linkPath(path)
             } else {
-                this.linkTo(name, params, query)
+                this.linkTo({name, params, query})
             }
         },
         /**
@@ -49,7 +49,7 @@ export const router = {
             )
             let redirect = `${path}?${urlEncode(queObj)}`
             query.redirect = redirect
-            this.linkTo(name, params, query)
+            this.linkTo({name, params, query})
         }
     }
 }
