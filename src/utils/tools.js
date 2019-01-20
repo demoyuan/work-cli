@@ -98,19 +98,35 @@ export const expiredStatus = (start, expired) => {
 /**
  * @param {*} time 日期
  * @param {String} type 格式
- * @description 日期格式化
+ * @description 日期格式化 GMT / UTC
  */
-export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss') => {
+export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', zone = 'GMT') => {
     if (time || time === 0) {
         let data = new Date(time)
-        let obj = {
-            y: data.getFullYear(),
-            m: supplement(parseInt(data.getMonth() + 1)),
-            d: supplement(data.getDate()),
-            h: supplement(data.getHours()),
-            mi: supplement(data.getMinutes()),
-            s: supplement(data.getSeconds())
+        let obj = {}
+        switch (zone) {
+            case 'UTC':
+                obj = {
+                    y: data.getUTCFullYear(),
+                    m: supplement(parseInt(data.getUTCMonth() + 1)),
+                    d: supplement(data.getUTCDate()),
+                    h: supplement(data.getUTCHours()),
+                    mi: supplement(data.getUTCMinutes()),
+                    s: supplement(data.getUTCSeconds())
+                }
+                break
+            default:
+                obj = {
+                    y: data.getFullYear(),
+                    m: supplement(parseInt(data.getMonth() + 1)),
+                    d: supplement(data.getDate()),
+                    h: supplement(data.getHours()),
+                    mi: supplement(data.getMinutes()),
+                    s: supplement(data.getSeconds())
+                }
+                break
         }
+
         let dataStr = ''
         switch (type) {
             case 'YY-MM-DD hh:mm:ss':
@@ -138,11 +154,11 @@ export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss') => {
  * @returns [Number: 区号, String: 手机号]
  */
 export const formatTel = str => {
-    let areaCode = [852, 86]
+    let areaCode = ['+852', '+86']
     let arr = []
     for (let i = 0, j = areaCode.length; i < j; i++) {
         if (str.includes(areaCode[i])) {
-            arr[0] = areaCode[i]
+            arr[0] = parseInt(areaCode[i])
             arr[1] = str.split(areaCode[i])[1]
             break
         }
