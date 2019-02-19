@@ -12,7 +12,7 @@ let init = new Init()
 
 module.exports = {
     lintOnSave: true,
-    baseUrl: process.env.VUE_APP_BASE,
+    publicPath: process.env.VUE_APP_BASE,
     outputDir: `dist/${process.env.VUE_APP_DIST}`,
     assetsDir: 'static',
     productionSourceMap: !init.getEnv(),
