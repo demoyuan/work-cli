@@ -16,6 +16,13 @@ module.exports = {
     outputDir: `dist/${process.env.VUE_APP_DIST}`,
     assetsDir: 'static',
     productionSourceMap: !init.getEnv(),
+    pwa: {
+        /* Service Worker 刷新 */
+        workboxOptions: {
+            skipWaiting: true,
+            clientsClaim: true
+        }
+    },
     configureWebpack: {
         resolve: {
             alias: {

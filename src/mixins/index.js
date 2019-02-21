@@ -1,3 +1,1 @@
-import { router } from './public'
-
-export { router }
+export { router } from './public'

@@ -1,8 +1,8 @@
 <template>
     <div id="nav">
-        <span @click="linkTo({name: 'home'})">Home</span>
+        <span @click="linkTo({ name: 'home' })">Home</span>
         |
-        <span @click="linkTo({name: 'about'})">About</span>
+        <span @click="linkTo({ name: 'about' })">About</span>
 
         <router-link to="/about">About</router-link>
     </div>
