@@ -98,13 +98,24 @@ export const expiredStatus = (start, expired) => {
 /**
  * @param {*} time 日期
  * @param {String} type 格式
+ * @param {*} zone 时区
  * @description 日期格式化 GMT / UTC
  */
-export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', zone = 'GMT') => {
+export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', { zone = 'GMT' }) => {
     if (time || time === 0) {
         let data = new Date(time)
         let obj = {}
         switch (zone) {
+            case 'GMT':
+                obj = {
+                    y: data.getFullYear(),
+                    m: supplement(parseInt(data.getMonth() + 1)),
+                    d: supplement(data.getDate()),
+                    h: supplement(data.getHours()),
+                    mi: supplement(data.getMinutes()),
+                    s: supplement(data.getSeconds())
+                }
+                break
             case 'UTC':
                 obj = {
                     y: data.getUTCFullYear(),
@@ -116,13 +127,20 @@ export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', zone = 'GMT') => {
                 }
                 break
             default:
+                // 服务端时间默认+8时区
+                data = new Date(time + zone)
+                    .toISOString()
+                    .slice(0, -5)
+                    .split('T')
+                var splitDay = data[0].split('-')
+                var splitTime = data[1].split(':')
                 obj = {
-                    y: data.getFullYear(),
-                    m: supplement(parseInt(data.getMonth() + 1)),
-                    d: supplement(data.getDate()),
-                    h: supplement(data.getHours()),
-                    mi: supplement(data.getMinutes()),
-                    s: supplement(data.getSeconds())
+                    y: splitDay[0],
+                    m: splitDay[1],
+                    d: splitDay[2],
+                    h: splitTime[0],
+                    mi: splitTime[1],
+                    s: splitTime[2]
                 }
                 break
         }
@@ -146,6 +164,21 @@ export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', zone = 'GMT') => {
                 break
         }
         return dataStr
+    }
+}
+
+/**
+ * @param {String} timeStr 时分 09:00
+ * @param {Number} timeZone 时区精确到毫秒 28800000
+ * @returns 服务器所在时区时间格式 2018-10-01T09:00:00.000Z
+ */
+export const toServerZone = ({ timeStr, timeZone }) => {
+    if (timeStr) {
+        // iOS 系统环境中 new Date(YY-MM-DD) 格式报错
+        let t = Date.parse(`2018-10-01T${timeStr}:00Z`)
+        return new Date(t - timeZone).toISOString()
+    } else {
+        return false
     }
 }
 
