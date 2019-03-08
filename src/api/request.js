@@ -17,16 +17,20 @@ const ajax = axios.create({
 })
 
 class Request {
-    constructor() {}
+    constructor() {
+        this.debug = process.env.NODE_ENV === 'production' ? false : true
+    }
 
     _resLog(res) {
-        console.log(`%c ${res.config.method}: ${res.config.url}`, 'background: #d4d4d4; color: #1a8e24')
-        if (res.config.method === 'get') {
-            console.log('%c Form-Data: %o', 'color: #1a8e24', res.config.params)
-        } else {
-            console.log('%c Form-Data: %o', 'color: #1a8e24', res.config.data)
+        if (this.debug) {
+            console.log(`%c ${res.config.method}: ${res.config.url}`, 'background: #d4d4d4; color: #1a8e24')
+            if (res.config.method === 'get') {
+                console.log('%c Form-Data: %o', 'color: #1a8e24', res.config.params)
+            } else {
+                console.log('%c Form-Data: %o', 'color: #1a8e24', res.config.data)
+            }
+            console.log('%c Response-Data: %o', 'color: #1a8e24', res.data)
         }
-        console.log('%c Response-Data: %o', 'color: #1a8e24', res.data)
     }
 
     ajaxGet(url, data) {
@@ -37,7 +41,7 @@ class Request {
                 return res.data
             })
             .catch(err => {
-                console.log(err)
+                console.error(err)
                 return err
             })
     }
@@ -50,7 +54,7 @@ class Request {
                 return res.data
             })
             .catch(err => {
-                console.log(err)
+                console.error(err)
                 return err
             })
     }
