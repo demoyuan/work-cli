@@ -45,14 +45,30 @@ cd work-cli
 安装依赖
 
 ```
-npm install
+npm install 或 yarn
 ```
 
 运行项目
 
 ```
-npm run serve-dev
+npm run serve-dev 或 yarn serve-dev
 ```
+
+> 注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
+
+国内下载node模块慢，设置第三方镜像源
+```
+npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global
+```
+
+Yarn是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载
+```
+npm install -g yarn
+yarn config set registry https://registry.npm.taobao.org --global
+yarn config set disturl https://npm.taobao.org/dist --global
+```
+安装完 yarn 之后就可以用 yarn 代替 npm 了，例如用 `yarn` 代替 `npm install` 命令，用 `yarn add <package...> [--dev/-D]` 代替 `npm install <package...> [--save-dev/-D]`。详见[yarn文档](https://yarnpkg.com/zh-Hans/docs)
 
 ## 配置
 第三方插件以及自定义配置文件
