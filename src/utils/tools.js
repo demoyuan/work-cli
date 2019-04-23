@@ -101,7 +101,7 @@ export const expiredStatus = (start, expired) => {
  * @param {*} zone 时区
  * @description 日期格式化 GMT / UTC
  */
-export const timeFormat = (time, type = 'YY-MM-DD hh:mm:ss', { zone = 'GMT' }) => {
+export const timeFormat = ({ time, type = 'YY-MM-DD hh:mm:ss', zone = 'GMT' }) => {
     if (time || time === 0) {
         let data = new Date(time)
         let obj = {}
@@ -207,4 +207,12 @@ export const delay = time => {
     return new Promise(resolve => {
         setTimeout(resolve, time)
     })
+}
+
+/**
+ * @param {String} str 字符串
+ * @description 替换用户名前三位之后为*号
+ */
+export const replaceName = str => {
+    return str.substr(0, 3) + '***'
 }

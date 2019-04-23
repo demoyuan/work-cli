@@ -18,7 +18,10 @@ import HelloWorld from '@c/HelloWorld.vue'
 export default {
     name: 'home',
     components: {
-        HeaderNav: () => import('@c/header'),
+        HeaderNav: async () => {
+            const { HeaderNav } = await import('@c/header')
+            return HeaderNav
+        },
         HelloWorld
     },
     data() {

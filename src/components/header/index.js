@@ -1,2 +1,1 @@
-import HeaderNav from './HeaderNav'
-export default HeaderNav
+export { default as HeaderNav } from './HeaderNav'

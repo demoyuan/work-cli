@@ -9,7 +9,10 @@
 <script>
 export default {
     components: {
-        HeaderNav: () => import('@c/header')
+        HeaderNav: async () => {
+            const { HeaderNav } = await import('@c/header')
+            return HeaderNav
+        }
     }
 }
 </script>

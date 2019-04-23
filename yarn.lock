@@ -714,6 +714,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/lru-cache@^4.1.1":
+  version "4.1.2"
+  resolved "http://registry.npm.taobao.org/@types/lru-cache/download/@types/lru-cache-4.1.2.tgz#528ba392658055dba78fc3be906ca338a1a2d1c5"
+  integrity sha1-UoujkmWAVdunj8O+kGyjOKGi0cU=
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "http://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -1667,6 +1672,16 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "http://registry.npm.taobao.org/aws4/download/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
+
+axios-extensions@^3.0.5:
+  version "3.0.5"
+  resolved "http://registry.npm.taobao.org/axios-extensions/download/axios-extensions-3.0.5.tgz#824490e2c017df4adceb277ed3f314123a1d1a77"
+  integrity sha1-gkSQ4sAX30rc6yd+0/MUEjodGnc=
+  dependencies:
+    "@types/lru-cache" "^4.1.1"
+    lru-cache "^4.1.5"
+    tslib "^1.9.0"
+    util "^0.11.1"
 
 axios@^0.18.0:
   version "0.18.0"
@@ -11068,7 +11083,7 @@ util@0.10.3:
   dependencies:
     inherits "2.0.1"
 
-util@^0.11.0:
+util@^0.11.0, util@^0.11.1:
   version "0.11.1"
   resolved "http://registry.npm.taobao.org/util/download/util-0.11.1.tgz#3236733720ec64bb27f6e26f421aaa2e1b588d61"
   integrity sha1-MjZzNyDsZLsn9uJvQhqqLhtYjWE=

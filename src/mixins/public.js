@@ -41,14 +41,14 @@ export const router = {
          * @description 创建带重定向地址跳转链接
          */
         jump(name, params, query = {}) {
-            let path = this.$route.path.split('/')[1]
+            // 移除query里可能含有redirect参数
             let queObj = JSON.parse(
                 JSON.stringify(this.$route.query, (key, value) => {
                     return key === 'redirect' ? undefined : value
                 })
             )
-            let redirect = `${path}?${urlEncode(queObj)}`
-            query.redirect = redirect
+            let redirect = `${this.$route.path}?${urlEncode(queObj)}`
+            query && (query.redirect = redirect)
             this.linkTo({ name, params, query })
         }
     }

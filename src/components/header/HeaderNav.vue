@@ -13,7 +13,10 @@ import { router } from '@m'
 
 export default {
     name: 'HeaderNav',
-    mixins: [router]
+    mixins: [router],
+    data() {
+        return {}
+    }
 }
 </script>
 
