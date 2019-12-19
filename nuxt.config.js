@@ -1,8 +1,21 @@
+import env from './env.js'
+
 export default {
   mode: 'universal',
-  /*
-   ** Headers of the page
-   */
+  server: {
+    port: env.PORT,
+    host: env.HOST
+  },
+  env: {
+    storageKey: env.STORAGE_KEY,
+    apiRoot: env.API_ROOT
+  },
+  router: {
+    base: env.BASE_URL
+  },
+  generate: {
+    dir: env.GENERATE_DIR
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -16,47 +29,41 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
+  css: [{ src: '~/assets/css/base.scss', lang: 'scss' }],
   plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+      }
+    ]
   ],
-  /*
-   ** Nuxt.js modules
-   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          { code: 'en', iso: 'en-US', file: 'en-US.js' },
+          { code: 'cn', iso: 'zh-CN', file: 'zh-CN.js' }
+        ],
+        defaultLocale: 'cn',
+        lazy: true,
+        langDir: 'lang/'
+      }
+    ]
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
+  styleResources: {
+    scss: ['~/assets/css/mixin.scss']
+  },
   axios: {},
-  /*
-   ** Build configuration
-   */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {}
   }
 }
