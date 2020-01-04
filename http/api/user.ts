@@ -1,4 +1,4 @@
-import * as api from '~/http/index'
+import * as api from '~/http/api'
 import Main from '../main'
 
 class User extends Main {
@@ -7,13 +7,14 @@ class User extends Main {
   }
 
   public async login(): Promise<any> {
-    let { code, data } = await api.login({})
-    let resCode = super.checkCode(code)
-    return { code: resCode }
+    let { code, data } = await super.post(api.login, {
+      username: 'aaa',
+      pass: '123'
+    })
+    return { code, data }
   }
 
   public async logout(): Promise<boolean> {
-    await api.logout({})
     super.removeLocal()
     return true
   }

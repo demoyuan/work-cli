@@ -15,8 +15,8 @@ export default class PagesAppIndex extends Vue {
   }
 
   public async testLogin() {
-    let res = await User.login()
-    console.log(res)
+    let { code, data } = await User.login()
+    console.log(code, data)
   }
 }
 </script>
