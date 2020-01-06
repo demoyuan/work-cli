@@ -1,4 +1,4 @@
-import store from 'store'
+const store = require('store')
 
 interface Project {
   whootToken?: string
@@ -35,8 +35,7 @@ class UserAuth {
    */
   checkAuth({ routeName, jumpFnc }: { routeName?: string, jumpFnc: Function }) {
     if (!this.whitelist(routeName)) {
-      if (this.projectStore && this.projectStore.whootToken) {
-      } else {
+      if (!(this.projectStore && this.projectStore.whootToken)) {
         jumpFnc()
       }
     }

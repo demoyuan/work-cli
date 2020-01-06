@@ -11,6 +11,10 @@ class User extends Main {
       username: 'aaa',
       pass: '123'
     })
+    super.saveLocal({
+      id: 123,
+      name: 'aaa'
+    })
     return { code, data }
   }
 

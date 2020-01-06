@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-import store from 'store'
+const store = require('store')
 
 interface CodeConfig {
   statusCode: number
@@ -33,7 +33,7 @@ class Main {
     }
   }
 
-  saveLocal({ val }: { val: any }): void {
+  saveLocal(val: any): void {
     store.set(this.key, val)
   }
 
