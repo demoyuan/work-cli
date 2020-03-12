@@ -1,4 +1,4 @@
-import * as api from '~/http/api'
+import * as api from './index'
 import Main from '../main'
 
 class User extends Main {
@@ -10,8 +10,9 @@ class User extends Main {
     let { code, data } = await super.post(api.login, {
       username: 'aaa',
       pass: '123'
-    })
+    }, { hasToken: false })
     super.saveLocal({
+      userToken: 'test-token',
       id: 123,
       name: 'aaa'
     })

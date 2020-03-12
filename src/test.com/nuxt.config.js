@@ -1,7 +1,10 @@
 import env from './env.js'
+const domain = 'test.com'
 
 export default {
   mode: 'universal',
+  srcDir: __dirname,
+  buildDir: `.nuxt/${domain}`,
   server: {
     port: env.PORT,
     host: env.HOST
@@ -30,7 +33,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: { color: '#fff' },
-  css: [{ src: '~/assets/css/base.scss', lang: 'scss' }],
+  css: [{ src: '../common/assets/css/base.scss', lang: 'scss' }],
   plugins: [],
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -60,7 +63,7 @@ export default {
     ]
   ],
   styleResources: {
-    scss: ['~/assets/css/mixin.scss']
+    scss: ['../common/assets/css/mixin.scss']
   },
   axios: {},
   build: {

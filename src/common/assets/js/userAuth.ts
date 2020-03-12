@@ -1,14 +1,14 @@
 const store = require('store')
 
 interface Project {
-  whootToken?: string
+  userToken?: string
   userAuth?: number
 }
 
 class UserAuth {
   key: string = process.env.storageKey || ''
   projectStore: Project | undefined
-  ignoreRoute = ['test', 'app-login', 'app-reset']
+  ignoreRoute = ['login', 'test']
 
   constructor(key?: string) {
     this.projectStore = store.get(key ? key : this.key)
@@ -30,14 +30,17 @@ class UserAuth {
 
   /**
    * @param routeName 路由名
-   * @param jumpFnc 跳转方法
    * @description 检查访问权限
    */
-  checkAuth({ routeName, jumpFnc }: { routeName?: string, jumpFnc: Function }) {
+  checkAuth({ routeName }: { routeName?: string }): boolean {
     if (!this.whitelist(routeName)) {
-      if (!(this.projectStore && this.projectStore.whootToken)) {
-        jumpFnc()
+      if (!(this.projectStore && this.projectStore.userToken)) {
+        return false // 无登录token
+      } else {
+        return true // 已登录
       }
+    } else {
+      return true // 白名单路由无需登录
     }
   }
 }

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import User from '~/http/api/user'
+import User from '../http/api/user'
 
 @Component({
   layout: 'app'

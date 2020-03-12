@@ -27,6 +27,11 @@ module.exports = {
     'dot-notation': 0,
     'prefer-const': 0,
     'no-return-await': 0,
-    '@typescript-eslint/no-unused-vars': 'off'
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': [1, {
+      'vars': 'all',
+      'args': 'after-used',
+      'ignoreRestSiblings': false
+    }]
   }
 }
