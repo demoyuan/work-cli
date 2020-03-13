@@ -1,10 +1,9 @@
 import env from './env.js'
-const domain = 'test.com'
 
 export default {
   mode: 'universal',
   srcDir: __dirname,
-  buildDir: `.nuxt/${domain}`,
+  buildDir: `.nuxt/${env.domain}`,
   server: {
     port: env.PORT,
     host: env.HOST

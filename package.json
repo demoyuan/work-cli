@@ -10,7 +10,7 @@
     "start": "cross-env MODE=dev nuxt start",
     "generate": "cross-env MODE=dev nuxt generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
-    "test.com:dev": "cross-env MODE=local nuxt --config-file src/test.com/nuxt.config.js"
+    "sh": "./run.sh"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
