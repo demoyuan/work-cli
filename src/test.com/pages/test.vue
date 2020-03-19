@@ -1,5 +1,5 @@
 <template lang="pug">
-  .welcome {{ $t('welcome') }}
+  .welcome {{ $t('welcome') }} aaaa
 </template>
 
 <script lang="ts">
