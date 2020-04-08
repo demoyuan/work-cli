@@ -1,5 +1,5 @@
 const mode = process.env.MODE
-const domain = 'test.com'
+const domain = 'site.com'
 
 const option = {
   local: {

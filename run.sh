@@ -23,7 +23,7 @@ funSelectList() {
 }
 
 echo '选择项目：'
-projectArr=('test.com' 'demo.com')
+projectArr=('test.com' 'site.com' 'elementui-site.com')
 funSelectList ${projectArr[*]}
 project=${projectArr[$?]}
 
