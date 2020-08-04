@@ -1,0 +1,17 @@
+{
+  "name": "example.com",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd ../../ && cross-var yarn cross-env MODE=local nuxt dev --config-file src/$npm_package_name/nuxt.config.js",
+    "generate:dev": "cd ../../ && cross-var yarn cross-env MODE=dev nuxt generate --config-file src/$npm_package_name/nuxt.config.js",
+    "generate:release": "cd ../../ && cross-var yarn cross-env MODE=release nuxt generate --config-file src/$npm_package_name/nuxt.config.js",
+    "deploy:dev": "yarn cross-env MODE=dev node deploy"
+  },
+  "dependencies": {
+    "element-ui": "^2.13.2",
+    "nuxt-i18n": "^6.13.3"
+  },
+  "devDependencies": {
+    "babel-plugin-component": "^1.1.1"
+  }
+}

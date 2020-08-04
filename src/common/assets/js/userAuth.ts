@@ -8,10 +8,11 @@ interface Project {
 class UserAuth {
   key: string = process.env.storageKey || ''
   projectStore: Project | undefined
-  ignoreRoute = ['login', 'test']
+  ignoreRoute = ['']
 
-  constructor(key?: string) {
-    this.projectStore = store.get(key ? key : this.key)
+  constructor({ ignoreRoute, key }: any) {
+    this.projectStore = store.get(key || this.key)
+    this.ignoreRoute = ignoreRoute
   }
 
   /**
@@ -21,7 +22,7 @@ class UserAuth {
    */
   whitelist(routeName: string | undefined): boolean {
     if (routeName) {
-      let name = routeName.split('___')[0]
+      let name: any = routeName.split('___')[0]
       return this.ignoreRoute.includes(name)
     } else {
       return false
@@ -34,7 +35,7 @@ class UserAuth {
    */
   checkAuth({ routeName }: { routeName?: string }): boolean {
     if (!this.whitelist(routeName)) {
-      if (!(this.projectStore && this.projectStore.userToken)) {
+      if (!this.projectStore?.userToken) {
         return false // 无登录token
       } else {
         return true // 已登录
