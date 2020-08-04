@@ -1,3 +1,5 @@
 *.css linguist-language=Vue
 *.js linguist-language=Vue
 *.html linguist-language=Vue
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto eol=lf
