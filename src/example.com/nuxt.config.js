@@ -2,6 +2,8 @@ import env from './env.js'
 
 export default {
   mode: 'spa',
+  target: 'static',
+  components: true,
   telemetry: false,
   srcDir: __dirname,
   buildDir: `.nuxt/${env.domain}`,

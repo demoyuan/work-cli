@@ -10,7 +10,14 @@ module.exports = {
     }
   },
   extends: [
-    '@nuxtjs/eslint-config-typescript'
+    '@nuxtjs/eslint-config-typescript',
+    'prettier',
+    'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended'
+  ],
+  plugins: [
+    'prettier',
   ],
   // add your custom rules here (0: off, 1: warn, 2: error)
   rules: {

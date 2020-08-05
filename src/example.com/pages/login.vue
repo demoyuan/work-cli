@@ -26,8 +26,9 @@ export default class PagesLogin extends Vue {
 <style lang="scss" scoped>
 .page-login {
   max-width: 250px;
-  margin: 200px auto;
+  margin: 0 auto;
   text-align: center;
+  padding-top: 200px;
 
   .input-item {
     margin-bottom: 20px;
